@@ -2,7 +2,15 @@ import React from 'react';
 import './App.css';
 import CharacterGallery from "./components/CharacterGallery";
 
+// export = mach die Funktion öffentlich, erlaube Imports
+// default = Das ist der Standardexport in dieser Datei
+
+//
 export default function App() {
+
+    // Normalerweise würden wir diese Daten von einer API live auslesen
+    // D.h. wie bei Postman ein GET an (https://rickandmortyapi.com/api) senden
+    // Für Übungszwecke importieren wir die Daten hier aber lokal
     const characters = [
         {
             "id": 1,
@@ -1130,11 +1138,30 @@ export default function App() {
         }
     ]
 
+    /*
+      Was ist eigentlich die Aufgabe von App.tsx?
+      -> App.tsx ist unsere Oberkomponente in der Struktur
+      -> App.tsx sollte möglichst klein und kompakt bleiben
+         (Das ist ein allgemeines React-Konzept.
+         Deshalb legen wir den Code in immer kleinere Stückchen "nach unten")
+    * */
     return (
+        /*
+          Hier ist eine Eigenheit von React!
+          Jede React-Komponente darf maximal EIN HTML Element zurückgeben
+          Deshalb ist die Willkommensbegrüßung und die Galerie in einem <> verpackt
+          "<>" ist ein leeres HTML Element (das ist kein "echtes" HTML und gibt es _nur_ bei React)
+        */
         <>
-        <h1>Die Webseite</h1>
+            {/* Die Willkommensbegrüßung gehört zu App.tsx */}
+            <h1>Willkommen!</h1>
 
-        <CharacterGallery characters={characters}/>
+            {/*
+                Hier haben wir die Galerie als unsere "Kindkomponente"
+                Die Galerie zeigt uns die Charaktere an
+                Dafür übergeben wir ihr die Charaktere in einem Props-"Paket"
+             */}
+            <CharacterGallery characters={characters}/>
         </>
     );
 }
