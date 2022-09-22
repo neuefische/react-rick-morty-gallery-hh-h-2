@@ -27,11 +27,11 @@ export default function CharacterGallery({characters}: CharacterGalleryProps) {
                }
             * */
             <div className="card">
-                <CharacterCard
-                    {/*
-                       "key" ist ein besonderes Prop!
-                        Wir brauchen es damit jedes Element in einer Liste eine _eindeutige_ ID hat
+                {/*
+                    "key" ist ein besonderes Prop!
+                    Wir brauchen es damit jedes Element in einer Liste eine _eindeutige_ ID hat
                      */}
+                <CharacterCard
                     key={character.id}
                     character={character}/>
             </div>
